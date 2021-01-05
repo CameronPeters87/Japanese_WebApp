@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Japanese_WebApp", "Japanese_WebApp\Japanese_WebApp.csproj", "{4C4BE495-4FEA-4A57-93FD-E346E806A14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Japanese_WebApp.Tests", "Japanese_WebApp.Tests\Japanese_WebApp.Tests.csproj", "{33D356CC-1A33-4B9A-A5E2-9F73C6E23A5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C4BE495-4FEA-4A57-93FD-E346E806A14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4BE495-4FEA-4A57-93FD-E346E806A14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4BE495-4FEA-4A57-93FD-E346E806A14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4BE495-4FEA-4A57-93FD-E346E806A14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33D356CC-1A33-4B9A-A5E2-9F73C6E23A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D356CC-1A33-4B9A-A5E2-9F73C6E23A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D356CC-1A33-4B9A-A5E2-9F73C6E23A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D356CC-1A33-4B9A-A5E2-9F73C6E23A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB05B1F6-B97F-4C11-9E82-FE68E13132E5}
+	EndGlobalSection
+EndGlobal

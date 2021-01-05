@@ -1,0 +1,18 @@
+﻿@model Japanese_WebApp.Models.Sentence
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <h4>Audio Jap : @Model.audio_jap</h4>
+                <h4>Eng: @Model.eng</h4>
+                <h4>Jap: @Model.jap</h4>
+                <h4>Source: @Model.source</h4>
+            </div>
+        </div>
+    </div>
+</section>

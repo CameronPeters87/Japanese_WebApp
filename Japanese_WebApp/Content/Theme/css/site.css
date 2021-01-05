@@ -1,0 +1,21 @@
+﻿.action-download {
+    color: rgba(0, 0, 255, 0.50);
+}
+
+.action-vol {
+    color: rgba(0, 0, 255, 0.50);
+}
+
+.action-download:hover {
+    color: rgba(0, 0, 255, 1);
+    cursor:pointer;
+}
+
+.action-vol:hover {
+/*    color: rgba(0, 0, 255, 1);
+*/    cursor: pointer;
+}
+
+.heart{
+    color:red;
+}
