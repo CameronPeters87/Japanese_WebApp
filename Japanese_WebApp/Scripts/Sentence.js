@@ -116,12 +116,27 @@ $(function () {
                     var message = data;
 
                     if (message == "Success") {
-                        alert("This sentence was added to your list.")
+                        alert("This sentence was added to your list.");
                     }
 
                 }).fail(function (xhr, status, error) {
                     alert(xhr + " " + status + " " + error);
                 });
         }
+        else {
+            $.post("/Sentences/RemoveFromList",
+                {
+                    eng: eng,
+                    jap: jap
+                }, function (data) {
+                    alert("This sentence was removed from your list.");
+
+                    $(this).attr("data-inlist", "False");
+
+                }).fail(function (xhr, status, error) {
+                    alert(xhr + " " + status + " " + error);
+                });
+        }
+
     });
 });

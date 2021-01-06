@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Heading = "日本語";
-    ViewBag.SubHeading = "Japanese";
+    ViewBag.SubHeading = "Search Japanese sentences with native audio!";
 }
 
 <p id="lang" class="d-none">@ViewBag.SearchLang</p>
@@ -55,10 +55,6 @@
                                             }
 
                                         }
-
-                                        @*<a href="@Url.Action("CreateAnki", "Sentences", new { eng = item.eng, jap = item.jap, search = ViewBag.SearchValue })">
-                                            <img src="~/Files/Anki-icon.png" width="24" height="24" />
-                                        </a>*@
                                     </span>
                                 </td>
                             </tr>

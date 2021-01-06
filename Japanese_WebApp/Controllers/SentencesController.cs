@@ -1,4 +1,5 @@
-﻿using Japanese_WebApp.Models;
+﻿using AnkiSharp;
+using Japanese_WebApp.Models;
 using Japanese_WebApp.Models.Entities;
 using Japanese_WebApp.Models.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -110,6 +111,20 @@ namespace Japanese_WebApp.Controllers
 
             return "Success";
         }
+        public async Task<string> RemoveFromList(string eng, string jap)
+        {
+            var userId = User.Identity.GetUserId();
+
+            var sentence = db.UserFavourites.Where(f => f.UserId == userId && 
+                f.Eng == eng && f.Jap == jap).FirstOrDefault();
+
+            db.UserFavourites.Remove(sentence);
+
+            await db.SaveChangesAsync();
+
+            return sentence.Id.ToString();
+        }
+
 
         public async Task<ActionResult> MyList()
         {
@@ -121,17 +136,33 @@ namespace Japanese_WebApp.Controllers
             return View(userFavourites);
         }
 
-        public ActionResult CreateAnki(string eng, string jap, string search)
+        public async Task<ActionResult> CreateAnki()
         {
-            AnkiSharp.Anki test = new AnkiSharp.Anki("MyAnkiPackage");
+            var userId = User.Identity.GetUserId();
+            var myList = await db.UserFavourites.Where(f => f.UserId == userId).ToListAsync();
 
-            test.AddItem("Hello", "Bonjour");
+            //Anki deck = new Anki("My List - Sentence Search",
+            //    new ApkgFile(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)));
 
-            test.CreateApkgFile(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Anki deck = new Anki("My List - Sentence Search");
 
-            //test.CreateApkgFile(@"c:\\Users\\Cameron\\Downloads");
+            deck.SetFields("Japanese", "English", "Audio");
 
-            return RedirectToAction("Index", new { search = search });
+            // Be careful, keep the same fields !
+            foreach (var item in myList)
+            {
+                var ankiItem = deck.CreateAnkiItem(item.Jap, item.Eng, item.Audio_Jap);
+
+                if (deck.ContainsItem(ankiItem) == false){ // will not add if the card is entirely the same (same fields' value)
+                    deck.AddItem(ankiItem);
+                }
+            }
+
+            deck.CreateApkgFile(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+
+            TempData["SM"] = "Anki Deck successfully created. The anki deck will be located on your desktop.";
+
+            return RedirectToAction("MyList");
         }
 
     }
