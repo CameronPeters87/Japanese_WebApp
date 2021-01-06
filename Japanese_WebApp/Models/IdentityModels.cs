@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Japanese_WebApp.Models.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -29,5 +30,8 @@ namespace Japanese_WebApp.Models
         {
             return new ApplicationDbContext();
         }
-    }
+
+        public DbSet<UserAudioGroup> UserAudioGroups { get; set; }
+        public DbSet<UserFavourite> UserFavourites { get; set; }
+}
 }

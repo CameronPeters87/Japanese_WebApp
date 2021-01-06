@@ -18,6 +18,8 @@ $(function () {
 
      //sentence.replace(new RegExp("(" + query + ")", "gi"), '<bld>$1</bld>');
 
+    ///////////////////////////////////////////////////////////////////
+
     var playing;
 
     $('.action-vol').mouseover(function () {
@@ -30,20 +32,6 @@ $(function () {
         if (!playing) {
             $(this).css("color", "rgba(0, 0, 255, 0.5)");
         }
-    });
-
-    $('.heart').mouseover(function () {
-        $(this)
-            .removeClass("fa-heart-o")
-            .addClass("fa-heart")
-            .css("color", "rgba(255, 0, 0, 1)");
-    });
-
-    $('.heart').mouseleave(function () {
-        $(this)
-            .removeClass("fa-heart")
-            .addClass("fa-heart-o")
-            .css("color", "rgba(255, 0, 0, 1)");
     });
 
     $('.action-vol').click(function () {
@@ -67,5 +55,73 @@ $(function () {
         //    alert("hello");
         //    $(this).css("color", "rgba(0, 0, 255, 0.5)");
         //}
+    });
+
+    ///////////////////////////////////////////////////////////////////
+
+    /*
+     * Add To List Feature
+     * */
+
+    $('.heart').mouseover(function () {
+        var inList = $(this).attr("data-inlist");
+
+        if (inList == "False") {
+            $(this)
+                .removeClass("fa-heart-o")
+                .addClass("fa-heart")
+                .css("color", "rgba(255, 0, 0, 1)");
+        }
+        else {
+
+        }
+        
+    });
+
+    $('.heart').mouseleave(function () {
+        var inList = $(this).attr("data-inlist");
+
+        if (inList == "False") {
+            $(this)
+                .removeClass("fa-heart")
+                .addClass("fa-heart-o")
+                .css("color", "rgba(255, 0, 0, 1)");
+        }
+        else {
+
+        }
+
+    });
+
+
+    $('.heart').click(function () {
+
+        var eng = $(this).attr("data-eng");
+        var jap = $(this).attr("data-jap");
+        var audio = $(this).attr("data-audio");
+        var source = $(this).attr("data-source");
+        var inList = $(this).attr("data-inlist");
+
+        $(this).attr("data-inlist", "True")
+
+        if (inList == "False") {
+            $.post("/Sentences/AddToList",
+                {
+                    eng: eng,
+                    jap: jap,
+                    audio: audio,
+                    source: source
+                }, function (data) {
+
+                    var message = data;
+
+                    if (message == "Success") {
+                        alert("This sentence was added to your list.")
+                    }
+
+                }).fail(function (xhr, status, error) {
+                    alert(xhr + " " + status + " " + error);
+                });
+        }
     });
 });

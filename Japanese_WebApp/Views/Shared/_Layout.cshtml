@@ -21,12 +21,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Log In</a>
-                    </li>
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Register", "Account")">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login", "Account")">Log In</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("MyList", "Sentences")">
+                                <i class="fa fa-heart fa-2x" style="color:red;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("LogOff", "Account")">
+                                Sign Out
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -35,8 +52,8 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container">
-                <h1 class="masthead-heading mb-0">日本語</h1>
-                <h2 class="masthead-subheading mb-0">Japanese</h2>
+                <h1 class="masthead-heading mb-0">@ViewBag.Heading</h1>
+                <h2 class="masthead-subheading mb-0">@ViewBag.SubHeading</h2>
 
                 <div class="row">
                     <div class="col-md-3"></div>

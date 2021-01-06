@@ -7,9 +7,10 @@ namespace Japanese_WebApp.Models.ViewModels
 {
     public class SentenceViewModel
     {
-        public string source { get; set; }
-        public string audio_jap { get; set; }
-        public string jap { get; set; }
-        public string eng { get; set; }
+        public string Source { get; set; }
+        public string Audio_Jap { get; set; }
+        public string Jap { get; set; }
+        public string Eng { get; set; }
+        public bool InMyList { get; set; }
     }
 }

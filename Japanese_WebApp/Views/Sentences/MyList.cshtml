@@ -1,11 +1,14 @@
-﻿@model IEnumerable<Japanese_WebApp.Models.ViewModels.SentenceViewModel>
+﻿@model IEnumerable<Japanese_WebApp.Models.Entities.UserFavourite>
 
 @{
-    ViewBag.Heading = "日本語";
-    ViewBag.SubHeading = "Japanese";
+    ViewBag.Heading = "私のリスト";
+    ViewBag.SubHeading = "My List";
 }
 
-<p id="lang" class="d-none">@ViewBag.SearchLang</p>
+@*<a href="@Url.Action("CreateAnki", "Sentences", new { eng = item.eng, jap = item.jap, search = ViewBag.SearchValue })">
+        <img src="~/Files/Anki-icon.png" width="24" height="24" />
+    </a>*@
+
 
 <section>
     <div class="container">
@@ -51,14 +54,11 @@
                                                    data-jap="@item.Jap"
                                                    data-audio="@item.Audio_Jap"
                                                    data-inlist="@item.InMyList"
-                                                   data-source="@item.Source"></i>  
+                                                   data-source="@item.Source"></i>
                                             }
 
                                         }
 
-                                        @*<a href="@Url.Action("CreateAnki", "Sentences", new { eng = item.eng, jap = item.jap, search = ViewBag.SearchValue })">
-                                            <img src="~/Files/Anki-icon.png" width="24" height="24" />
-                                        </a>*@
                                     </span>
                                 </td>
                             </tr>

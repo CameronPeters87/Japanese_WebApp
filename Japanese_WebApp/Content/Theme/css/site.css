@@ -19,3 +19,7 @@
 .heart{
     color:red;
 }
+
+.heart:hover{
+    cursor:pointer;
+}
