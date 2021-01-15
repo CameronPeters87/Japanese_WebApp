@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/japanese-webappdbserver/databases/Japanese_WebApp_db",
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/japanese-webappdbserver/databases/Japanese_db",
       "type": "mssql.azure",
-      "connectionId": "DefaultConnection",
+      "connectionId": "Japanese",
       "secretStore": "AzureAppSettings"
     }
   }

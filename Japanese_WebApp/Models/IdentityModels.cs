@@ -22,7 +22,7 @@ namespace Japanese_WebApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Japanese", throwIfV1Schema: false)
         {
         }
 
@@ -31,7 +31,6 @@ namespace Japanese_WebApp.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<UserAudioGroup> UserAudioGroups { get; set; }
         public DbSet<UserFavourite> UserFavourites { get; set; }
 }
 }

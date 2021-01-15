@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "Japanese_WebApp.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Japanese_WebApp.Models.ApplicationDbContext context)
