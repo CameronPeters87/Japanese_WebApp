@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
@@ -125,7 +126,6 @@ namespace Japanese_WebApp.Controllers
             return sentence.Id.ToString();
         }
 
-
         public async Task<ActionResult> MyList()
         {
             string userId = User.Identity.GetUserId();
@@ -146,7 +146,7 @@ namespace Japanese_WebApp.Controllers
 
             Anki deck = new Anki("My List - Sentence Search");
 
-            deck.SetFields("Japanese", "English", "Audio");
+            deck.SetFields("Front", "Back", "Audio");
 
             // Be careful, keep the same fields !
             foreach (var item in myList)
